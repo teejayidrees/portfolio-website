@@ -14,16 +14,12 @@ const LearnProvider = ({ children }) => {
   // Fetch articles from backend API
   const fetchArticles = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/articles");
+      const res = await axios.get("https://portfolio-website-backend-uf19.onrender.com/api/articles");
       setLearnCard(res.data);
     } catch (err) {
       console.error(`Failed to fetch articles ${err}`);
     }
   };
-
-  // useEffect(() => {
-  //   fetchArticles();
-  // });
 
   const articles = [
     {
@@ -135,10 +131,6 @@ const LearnProvider = ({ children }) => {
       tags: ["Git", "GitHub", "Version Control"],
     },
   ];
-  //fetch the articles and set it to the state "learnCard"
-  // const fetchLearn = () => {
-  //   setLearnCard(articles);
-  // };
 
   useEffect(() => {
     fetchArticles();
