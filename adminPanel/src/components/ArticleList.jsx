@@ -29,7 +29,7 @@ const ArticleList = () => {
     if (!window.confirm("Are you sure you want to delete this article?"))
       return;
     try {
-      await axios.delete(`http://localhost:4000/api/articles/${id}`);
+      await axios.delete(`https://portfolio-website-backend-uf19.onrender.com/api/articles/${id}`);
       // Update the UI after deletion
       setArticles((prev) => prev.filter((article) => article._id !== id));
       setSuccess("Article deleted successfully");
