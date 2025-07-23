@@ -74,7 +74,7 @@ const UploadArticle = () => {
 
       // Send the request to your MERN backend
       await axios.post(
-        "http://localhost:4000/api/articles/uploads",
+        "https://portfolio-website-backend-uf19.onrender.com/api/articles/uploads",
         formDataToSend,
         {
           headers: {
