@@ -5,7 +5,7 @@ import UploadArticle from "./components/UploadArticle.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
 import ArticleList from "./components/ArticleList.jsx";
 import Home from "./components/Home.jsx";
-import ContactList from "./components/ContactList.jsx";
+import ContactList from "./components/contactList.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 
 const AppRoutes = () => {
