@@ -16,7 +16,7 @@ const ArticleList = () => {
   // Fetch articles from backend API
   const fetchArticles = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/articles");
+      const res = await axios.get("https://portfolio-website-backend-uf19.onrender.com/api/articles");
       setArticles(res.data);
     } catch (err) {
       console.error("Failed to fetch articles", err);
