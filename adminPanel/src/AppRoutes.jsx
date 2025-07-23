@@ -4,7 +4,7 @@ import AdminLogin from "./AdminLogin.jsx";
 import UploadArticle from "./components/UploadArticle.jsx";
 import AdminDashboard from "./components/AdminDashboard.jsx";
 import ArticleList from "./components/ArticleList.jsx";
-import Home from "./components/Home.jsx";
+import App from "./App";
 import ContactList from "./components/contactList.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 
@@ -14,7 +14,7 @@ const AppRoutes = () => {
       <BrowserRouter>
         <Routes>
           {/* login Route */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<App />} />
           <Route path="/admin/login" element={<AdminLogin />} />
 
           <Route
