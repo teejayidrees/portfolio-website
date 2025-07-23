@@ -18,7 +18,7 @@ const AdminLogin = () => {
 
     try {
       // POST request to your login endpoint
-      const res = await axios.post("/admin/login", {
+      const res = await axios.post("https://portfolio-website-backend-uf19.onrender.com/api/admin/login", {
         email,
         password,
       });
