@@ -4,7 +4,7 @@ import AdminDashboard from "../src/components/AdminDashboard.jsx"; // this is th
 
 const App = () => {
   // Auth state
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // When the app loads, check if a token already exists
   useEffect(() => {
