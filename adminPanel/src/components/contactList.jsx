@@ -11,7 +11,7 @@ const ContactList = () => {
   // Fetch all beats from backend
   const fetchContact = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/contacts");
+      const res = await axios.get("https://portfolio-website-backend-uf19.onrender.com/api/contacts");
       setContacts(res.data);
     } catch (err) {
       console.error("Failed to fetch contact", err);
@@ -24,7 +24,7 @@ const ContactList = () => {
     if (!window.confirm("Are you sure you want to delete this contact?"))
       return;
     try {
-      await axios.delete(`http://localhost:4000/api/contacts/${id}`);
+      await axios.delete(`https://portfolio-website-backend-uf19.onrender.com/api/contacts/${id}`);
       // Remove deleted beat from UI
       setContacts((prev) => prev.filter((contact) => contact._id !== id));
       console.log("Contact deleted successfully");
