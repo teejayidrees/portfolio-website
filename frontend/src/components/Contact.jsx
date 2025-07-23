@@ -124,7 +124,7 @@ const Contact = () => {
     try {
       // POST form data to API endpoint
       const _ = await axios.post(
-        "http://localhost:4000/api/contacts/upload",
+        "https://portfolio-website-backend-uf19.onrender.com/api/contacts/upload",
         formData
       );
 
