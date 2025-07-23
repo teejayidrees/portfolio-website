@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
-import AdminLogin from "./AdminLogin";
-import UploadArticle from "./components/UploadArticle";
-import AdminDashboard from "./components/AdminDashboard";
-import ArticleList from "./components/ArticleList";
-import Home from "./components/Home";
-import ContactList from "./components/ContactList";
-import PrivateRoute from "./PrivateRoute";
+import AdminLogin from "./AdminLogin.jsx";
+import UploadArticle from "./components/UploadArticle.jsx";
+import AdminDashboard from "./components/AdminDashboard.jsx";
+import ArticleList from "./components/ArticleList.jsx";
+import Home from "./components/Home.jsx";
+import ContactList from "./components/ContactList.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 const AppRoutes = () => {
   return (
