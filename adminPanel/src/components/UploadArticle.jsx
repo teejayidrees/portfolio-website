@@ -13,7 +13,7 @@ const UploadArticle = () => {
     preamble: "", // Added for excerpt.preamble
     passage: "", // Added for excerpt.passage
   });
-
+const token = localStorage.getItem("token");
   const [imageFile, setImageFile] = useState(null); // Stores selected image file
   const [uploading, setUploading] = useState(false); // Upload status
   const [error, setError] = useState(""); // Error message if any
@@ -77,6 +77,7 @@ const UploadArticle = () => {
         {
           headers: {
             "Content-Type": "multipart/form-data", // Important for file uploads
+         Authorization: `Bearer ${token}`,
           },
         }
       );
