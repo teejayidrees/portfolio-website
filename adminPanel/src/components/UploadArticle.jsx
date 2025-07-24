@@ -6,7 +6,6 @@ import { FaArrowLeft } from "react-icons/fa";
 const UploadArticle = () => {
   const [formData, setFormData] = useState({
     title: "",
-    description: "",
     category: "",
     tags: "",
     readTime: "",
@@ -51,7 +50,6 @@ const UploadArticle = () => {
 
       // Append normal string fields
       formDataToSend.append("title", formData.title);
-      formDataToSend.append("description", formData.description);
       formDataToSend.append("category", formData.category);
       formDataToSend.append("readTime", formData.readTime);
       formDataToSend.append("author", formData.author);
@@ -87,7 +85,6 @@ const UploadArticle = () => {
       setSuccessMsg("Article uploaded successfully!");
       setFormData({
         title: "",
-        description: "",
         category: "",
         tags: "",
         readTime: "",
@@ -208,16 +205,7 @@ const UploadArticle = () => {
         </div>
 
         {/* Description */}
-        <div className="col-12">
-          <label className="form-label">Full Description</label>
-          <textarea
-            name="description"
-            className="form-control"
-            rows="5"
-            value={formData.description}
-            onChange={handleChange}
-            required></textarea>
-        </div>
+        
 
         {/* Cover Image */}
         <div className="col-12">
