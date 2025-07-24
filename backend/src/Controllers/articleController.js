@@ -22,81 +22,59 @@ export async function deleteArticle(req, res) {
     res.status(500).json({ message: "internal server Error" });
   }
 }
-// export async function createArticle(req, res) {
-//   try {
-//     // Get temp paths from Multer-uploaded files
-//     const imagePath = req.files.image[0].path;
 
-//     // Upload image to Cloudinary
-//     const imageUpload = await cloudinary.uploader.upload(imagePath, {
-//       resource_type: "image", // Image resource type
-//       folder: "articles/images", // Optional folder
-//     });
-
-//     //Remove temp files after uploading
-//     fs.unlinkSync(imagePath);
-
-//     const newArticle = new Article({
-//       title: req.body.title,
-//       description: req.body.description,
-//       imageUrl: imageUpload.secure_url,
-//       createdAt: req.body.createdAt,
-//       category: req.body.category,
-//       readTime: req.body.readTime,
-//       tags: req.body.tags,
-//       author: req.body.author,
-//       excerpt: req.body.excerpt,
-//     });
-//     await newArticle.save();
-//     res.status(201).json({
-//       message: "Article Created Successfully",
-//       article: newArticle,
-//     });
-//     console.log("Article Successfully created");
-//   } catch (error) {
-//     console.error(`Error in createArticle Controller ${error}`);
-//     res.status(500).json({ message: "Error in creating Article" });
-//   }
-// }
-
-export async function createArticle(req, res) {
+export const createArticle = async (req, res) => {
   try {
-    const imagePath = req.files.image[0].path;
-    if (!imagePath) {
+
+    const imageFile = req?.files?.image?.[0];
+
+    if (!imageFile) {
       return res.status(400).json({ message: "Image is required" });
     }
 
-    // Upload to Cloudinary
-    const imageUpload = await cloudinary.uploader.upload(imagePath, {
-      resource_type: "image",
-      folder: "articles/images",
-    });
+    // Upload image to Cloudinary
+    let uploadResult;
+    try {
+      uploadResult = await cloudinary.uploader.upload(imageFile.path, {
+        resource_type: "image",
+        folder: "articles/images",
+      });
+    } catch (uploadErr) {
+      console.error("Cloudinary Upload Error:", uploadErr);
+      return res
+        .status(500)
+        .json({ message: "Failed to upload image to Cloudinary" });
+    }
 
-    // Delete local file after upload
-    fs.unlinkSync(imagePath);
+    // Delete local temp file (safe async)
+    fs.unlink(imageFile.path, (err) => {
+      if (err) console.error("Failed to delete temp file:", err);
+    });
 
     const newArticle = new Article({
       title: req.body.title,
-      description: req.body.description,
-      imageUrl: imageUpload.secure_url,
-      createdAt: req.body.createdAt,
+      imageUrl: uploadResult.secure_url,
+      cloudinary_id: uploadResult.public_id,
+      createdAt: new Date(),
       category: req.body.category,
       readTime: req.body.readTime,
-      tags: JSON.parse(req.body.tags), // ✅ Ensure it's an array
+      tags: req.body.tags ? JSON.parse(req.body.tags) : [],
       author: req.body.author,
-      excerpt: JSON.parse(req.body.excerpt), // ✅ Ensure it's an object
+      excerpt: req.body.excerpt ? JSON.parse(req.body.excerpt) : {},
     });
 
     await newArticle.save();
+
     res.status(201).json({
       message: "Article Created Successfully",
       article: newArticle,
     });
-    console.log("Article Successfully created");
   } catch (error) {
-    console.error(`Error in createArticle Controller ${error}`);
-    res
-      .status(500)
-      .json({ message: "Error in creating Article", error: error.message });
+    console.error("Error in createArticle Controller", error);
+    res.status(500).json({
+      message: "Error in creating Article",
+      error: error.message,
+    });
   }
-}
+};
+
