@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 import { Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -70,7 +70,7 @@ const UploadArticle = () => {
       formDataToSend.append("tags", JSON.stringify(tagArray));
 
       // Send the request to your MERN backend
-      await axios.post(
+      await axiosInstance.post(
         "https://portfolio-website-backend-uf19.onrender.com/api/articles/uploads",
         formDataToSend,
         {
