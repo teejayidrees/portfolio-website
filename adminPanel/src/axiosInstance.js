@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: "https://portfolio-website-backend-uf19.onrender.com/api",
 });
 
 // Attach token before each request
