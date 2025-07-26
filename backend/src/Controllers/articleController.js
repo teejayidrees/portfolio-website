@@ -1,5 +1,5 @@
 import Article from "../Models/article.js";
-import { v2 as cloudinary } from "cloudinary";
+import cloudinary from "../config/cloudinary.js";
 
 // Convert memory buffer to Base64 Data URI
 const bufferToDataUri = (file) => {
