@@ -54,20 +54,27 @@ export async function createArticle(req, res) {
     const fileDataUri = bufferToDataUri(imageFile);
 
       // Upload image to Cloudinary
-    let uploadResult;
-    try {
-     uploadResult = await cloudinary.uploader.upload(fileDataUri, {
-  resource_type: "image",
-  folder: "articles/images",
-});
+let uploadResult;
+try {
+  uploadResult = await cloudinary.uploader.upload(fileDataUri, {
+    resource_type: "image",
+    folder: "articles/images",
+  });
 
-    } catch (uploadErr) {
-      console.error("Cloudinary Upload Error:", uploadErr);
-      return res
-        .status(500)
-        .json({ message: "Failed to upload image to Cloudinary",
-              error: uploadErr.message,});
-    }
+  // ✅ Respond with the Cloudinary result after successful upload
+  return res.status(200).json({
+    message: "Image uploaded successfully to Cloudinary",
+    imageUrl: uploadResult.secure_url,
+    cloudinary_id: uploadResult.public_id,
+  });
+
+} catch (uploadErr) {
+  return res.status(500).json({
+    message: "Failed to upload image to Cloudinary",
+    error: uploadErr.message || "Unknown Cloudinary error",
+  });
+}
+
 
     const newArticle = new Article({
       title: req.body.title,
