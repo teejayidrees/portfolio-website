@@ -18,7 +18,7 @@ router.get("/", getAllArticle);
 router.post(
   "/uploads",
   upload.fields([{ name: "image", maxCount: 1 }]),
-  verifyAdmin,
+  
   createArticle
 );
 
