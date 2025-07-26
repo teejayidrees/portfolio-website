@@ -65,7 +65,8 @@ export async function createArticle(req, res) {
       console.error("Cloudinary Upload Error:", uploadErr);
       return res
         .status(500)
-        .json({ message: "Failed to upload image to Cloudinary" });
+        .json({ message: "Failed to upload image to Cloudinary",
+              error: uploadErr.message,});
     }
 
     const newArticle = new Article({
