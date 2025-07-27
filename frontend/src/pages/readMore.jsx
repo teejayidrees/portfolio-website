@@ -26,7 +26,7 @@ const ReadMore = () => {
             </Link>
           </Col>
           <Col className="text-center">
-            <h2 className="fs-3 mb-3">Article Not Found</h2>
+            <h2 className="fs-3 mb-3">Loading... <br/> Refresh after 15sec</h2>
             <p>The article you are looking for does not exist.</p>
             <Link to="/learning">
               <Button variant="primary">Back to Learning Hub</Button>
