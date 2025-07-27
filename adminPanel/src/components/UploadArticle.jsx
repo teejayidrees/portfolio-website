@@ -93,7 +93,7 @@ const UploadArticle = () => {
       });
       setImageFile(null);
       setUploading(false);
-      navigate("/admin/articles");
+      
     } catch (err) {
       console.error("Upload failed:", err);
       setError(`Error uploading article: ${err.message}`);
