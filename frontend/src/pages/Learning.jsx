@@ -28,12 +28,15 @@ const Learning = () => {
    * @returns {Array} Filtered array of articles
    */
   const filteredArticles = learnCard.filter((article) => {
-      const matchesSearch =
-  (article.title?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-  (article.excerpt?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-  (article.tags || []).some((tag) =>
-    tag?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    const matchesSearch =
+      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      article.excerpt.preamble
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+      article.tags.some((tag) =>
+        tag.toLowerCase().includes(searchTerm.toLowerCase())
+      ) ||
+      article.excerpt.passage.toLowerCase().includes(searchTerm.toLowerCase());
 
     //selectedCategory sets default category to all if Not, let the article's category = selectedCategory
     const matchesCategory =
