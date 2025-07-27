@@ -11,20 +11,6 @@ const SingleLearn = ({ article }) => {
   const handleReadMoreClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  //   const filteredArticles = learnCard.filter((article) => {
-  //     const matchesSearch =
-  //       article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //       article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //       article.tags.some((tag) =>
-  //         tag.toLowerCase().includes(searchTerm.toLowerCase())
-  //       );
-  //     //selectedCategory sets default category to all if Not, let the article's category = selectedCategory
-  //     const matchesCategory =
-  //       selectedCategory === "all" || article.category === selectedCategory;
-
-  //     return matchesSearch && matchesCategory;
-  //   });
   return (
     <>
       <Col lg={4} md={6}>
