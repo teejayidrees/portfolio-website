@@ -23,109 +23,18 @@ const Learning = () => {
   } = useContext(LearnContext);
   // Get theme context for consistent styling
   const { isDark } = useTheme();
-
-  /**
-   * Mock data for blog posts/articles
-   * In the future, this will be replaced with data from a CMS/backend
-   */
-  //  const articles = [
-  //   {
-  //     id: 1,
-  //     title: "Getting Started with React Hooks",
-  //     excerpt:
-  //       "Learn the fundamentals of React Hooks and how they can simplify your component logic.",
-  //     category: "React",
-  //     author: "Alex Johnson",
-  //     date: "2024-01-15",
-  //     readTime: "5 min read",
-  //     image:
-  //       "https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=600",
-  //     tags: ["React", "JavaScript", "Frontend"],
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "CSS Grid vs Flexbox: When to Use What",
-  //     excerpt:
-  //       "A comprehensive guide to understanding the differences between CSS Grid and Flexbox.",
-  //     category: "CSS",
-  //     author: "Alex Johnson",
-  //     date: "2024-01-10",
-  //     readTime: "8 min read",
-  //     image:
-  //       "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=600",
-  //     tags: ["CSS", "Layout", "Design"],
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "JavaScript ES6+ Features You Should Know",
-  //     excerpt:
-  //       "Explore modern JavaScript features that will make your code cleaner and more efficient.",
-  //     category: "JavaScript",
-  //     author: "Alex Johnson",
-  //     date: "2024-01-05",
-  //     readTime: "12 min read",
-  //     image:
-  //       "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=600",
-  //     tags: ["JavaScript", "ES6", "Programming"],
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Building Responsive Websites with Bootstrap 5",
-  //     excerpt:
-  //       "Master the art of creating responsive, mobile-first websites using Bootstrap 5.",
-  //     category: "Bootstrap",
-  //     author: "Alex Johnson",
-  //     date: "2024-01-01",
-  //     readTime: "10 min read",
-  //     image:
-  //       "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
-  //     tags: ["Bootstrap", "Responsive", "CSS"],
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Introduction to Node.js and Express",
-  //     excerpt:
-  //       "Get started with server-side JavaScript using Node.js and the Express framework.",
-  //     category: "Backend",
-  //     author: "Alex Johnson",
-  //     date: "2023-12-28",
-  //     readTime: "15 min read",
-  //     image:
-  //       "https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=600",
-  //     tags: ["Node.js", "Express", "Backend"],
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Git and GitHub Best Practices",
-  //     excerpt:
-  //       "Learn essential Git commands and GitHub workflows for effective version control.",
-  //     category: "Tools",
-  //     author: "Alex Johnson",
-  //     date: "2023-12-25",
-  //     readTime: "7 min read",
-  //     image:
-  //       "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=600",
-  //     tags: ["Git", "GitHub", "Version Control"],
-  //   },
-  // ];
-
-  // Extract unique categories for filter dropdown
-  // const categories = [
-  //   "all",
-  //   ...new Set(articles.map((article) => article.category)),
-  // ];
-
   /**
    * Filter articles based on search term and selected category
    * @returns {Array} Filtered array of articles
    */
   const filteredArticles = learnCard.filter((article) => {
-    const matchesSearch =
-      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      article.tags.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      const matchesSearch =
+  (article.title?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+  (article.excerpt?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+  (article.tags || []).some((tag) =>
+    tag?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
     //selectedCategory sets default category to all if Not, let the article's category = selectedCategory
     const matchesCategory =
       selectedCategory === "all" || article.category === selectedCategory;
@@ -133,21 +42,7 @@ const Learning = () => {
     return matchesSearch && matchesCategory;
   });
 
-  /**
-   * Handle search input change
-   * @param {Event} e - Input change event
-   */
-  // const handleSearchChange = (e) => {
-  //   setSearchTerm(e.target.value);
-  // };
 
-  /**
-   * Handle category filter change
-   * @param {Event} e - Select change event
-   */
-  // const handleCategoryChange = (e) => {
-  //   setSelectedCategory(e.target.value);
-  // };
 
   return (
     <div className={`learning-page pt-5 ${isDark ? "bg-dark" : "bg-light"}`}>
