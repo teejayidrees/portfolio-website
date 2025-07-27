@@ -72,7 +72,8 @@ const Learning = () => {
                   </InputGroup.Text>
                   <Form.Control
                     type="text"
-                    placeholder="Search articles..."
+                    placeholder="Search for keywords..."
+                    className={`${isDark ? "search-text" : ""}`}
                     value={searchTerm}
                     onChange={handleSearchChange}
                   />
@@ -129,7 +130,7 @@ const Learning = () => {
               <Button
                 variant="primary"
                 size="lg"
-                href="http://localhost:5176/#contact">
+                href="https://teejayidrees.vercel.app/#contact">
                 <i className="bi bi-envelope me-2"></i>
                 Suggest a Topic
               </Button>
