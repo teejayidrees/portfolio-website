@@ -88,7 +88,16 @@ try {
       excerpt: req.body.excerpt ? JSON.parse(req.body.excerpt) : {},
     });
 
-    await newArticle.save();
+   try {
+  await newArticle.save();
+} catch (saveErr) {
+  console.error("MongoDB Save Error:", saveErr);
+  return res.status(500).json({
+    message: "Failed to save article to MongoDB",
+    error: saveErr.message,
+  });
+}
+
 
     res.status(201).json({
       message: "Article Created Successfully",
