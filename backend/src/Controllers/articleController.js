@@ -79,7 +79,7 @@ try {
     const newArticle = new Article({
       title: req.body.title,
       imageUrl: uploadResult.secure_url,
-      cloudinary_id: uploadResult.public_id,
+
       createdAt: new Date(),
       category: req.body.category,
       readTime: req.body.readTime,
