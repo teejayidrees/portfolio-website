@@ -43,39 +43,27 @@ export async function deleteArticle(req, res) {
 // CREATE new article
 export async function createArticle(req, res) {
   try {
-    //image file
     const imageFile = req?.files?.image?.[0];
-//  if no image, return error
     if (!imageFile) {
       return res.status(400).json({ message: "Image is required" });
     }
 
-    // Convert buffer to base64 URI and upload to Cloudinary
     const fileDataUri = bufferToDataUri(imageFile);
 
-      // Upload image to Cloudinary
-let uploadResult;
-try {
-  uploadResult = await cloudinary.uploader.upload(fileDataUri, {
-    resource_type: "image",
-    folder: "articles/images",
-  });
+    let uploadResult;
+    try {
+      uploadResult = await cloudinary.uploader.upload(fileDataUri, {
+        resource_type: "image",
+        folder: "articles/images",
+      });
+    } catch (uploadErr) {
+      return res.status(500).json({
+        message: "Failed to upload image to Cloudinary",
+        error: uploadErr.message || "Unknown Cloudinary error",
+      });
+    }
 
-  // ✅ Respond with the Cloudinary result after successful upload
-  return res.status(200).json({
-    message: "Image uploaded successfully to Cloudinary",
-    imageUrl: uploadResult.secure_url,
-    cloudinary_id: uploadResult.public_id,
-  });
-
-} catch (uploadErr) {
-  return res.status(500).json({
-    message: "Failed to upload image to Cloudinary",
-    error: uploadErr.message || "Unknown Cloudinary error",
-  });
-}
-
-
+    // Now continue with article creation
     const newArticle = new Article({
       title: req.body.title,
       imageUrl: uploadResult.secure_url,
@@ -88,16 +76,15 @@ try {
       excerpt: req.body.excerpt ? JSON.parse(req.body.excerpt) : {},
     });
 
-   try {
-  await newArticle.save();
-} catch (saveErr) {
-  console.error("MongoDB Save Error:", saveErr);
-  return res.status(500).json({
-    message: "Failed to save article to MongoDB",
-    error: saveErr.message,
-  });
-}
-
+    try {
+      await newArticle.save();
+    } catch (saveErr) {
+      console.error("MongoDB Save Error:", saveErr);
+      return res.status(500).json({
+        message: "Failed to save article to MongoDB",
+        error: saveErr.message,
+      });
+    }
 
     res.status(201).json({
       message: "Article Created Successfully",
@@ -111,4 +98,3 @@ try {
     });
   }
 }
-
