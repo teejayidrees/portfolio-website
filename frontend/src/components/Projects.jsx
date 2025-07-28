@@ -34,36 +34,9 @@ const Projects = () => {
       githubUrl: "#",
       status: "Completed",
     },
+    
     {
       id: 2,
-      title: "Weather App",
-      description:
-        "A responsive weather application with location-based forecasts, interactive maps, and detailed weather information.",
-      image:
-        "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "OpenWeather API", "Bootstrap"],
-      category: "web",
-      featured: false,
-      liveUrl: "#",
-      githubUrl: "#",
-      status: "Completed",
-    },
-    {
-      id: 3,
-      title: "Task Management App",
-      description:
-        "A collaborative task management tool with drag-and-drop functionality, team collaboration, and progress tracking.",
-      image:
-        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "Firebase", "Bootstrap"],
-      category: "web",
-      featured: false,
-      liveUrl: "#",
-      githubUrl: "#",
-      status: "In Progress",
-    },
-    {
-      id: 4,
       title: "Portfolio Website",
       description:
         "A responsive portfolio website showcasing projects and skills with smooth animations and modern design.",
@@ -75,34 +48,6 @@ const Projects = () => {
       liveUrl: "#",
       githubUrl: "#",
       status: "Completed",
-    },
-    // {
-    //   id: 5,
-    //   title: "Mobile Banking UI",
-    //   description:
-    //     "Modern mobile banking interface design with intuitive user experience and secure transaction flows.",
-    //   image:
-    //     "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=600",
-    //   technologies: ["Figma", "Adobe XD", "Prototyping"],
-    //   category: "design",
-    //   featured: false,
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   status: "Completed",
-    // },
-    {
-      id: 6,
-      title: "Restaurant App",
-      description:
-        "Mobile app for restaurant ordering with menu browsing, cart management, and order tracking.",
-      image:
-        "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React Native", "Firebase", "Stripe"],
-      category: "mobile",
-      featured: false,
-      liveUrl: "#",
-      githubUrl: "#",
-      status: "In Progress",
     },
   ];
 
