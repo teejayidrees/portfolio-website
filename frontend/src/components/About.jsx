@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, ProgressBar } from "react-bootstrap";
 import { useTheme } from "../contexts/ThemeContext";
-
+import {Link} from "react-router-dom"
 /**
  * About Section Component
  * - Personal information and background
@@ -131,6 +131,9 @@ const About = () => {
                   future of web development and eager to contribute to
                   innovative projects.
                 </p>
+                <p className = "fs-5 mb-3">I post valuable content about web development daily <br/> Check it out <button><LinkContainer to="/learning">
+              Click Me
+            </LinkContainer></button> </p>
               </div>
 
               {/* Key Strengths */}
