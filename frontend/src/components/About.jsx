@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, ProgressBar } from "react-bootstrap";
 import { useTheme } from "../contexts/ThemeContext";
-import {Link} from "react-router-dom"
+import { LinkContainer } from "react-router-bootstrap";
 /**
  * About Section Component
  * - Personal information and background
