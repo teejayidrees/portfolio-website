@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, ProgressBar } from "react-bootstrap";
 import { useTheme } from "../contexts/ThemeContext";
-import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 /**
  * About Section Component
  * - Personal information and background
@@ -43,6 +43,9 @@ const About = () => {
     "Creative Thinking",
     "Time Management",
   ];
+  const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
     <section id="about" className={`py-5 ${isDark ? "bg-dark" : "bg-light"}`}>
@@ -131,9 +134,9 @@ const About = () => {
                   future of web development and eager to contribute to
                   innovative projects.
                 </p>
-                <p className = "fs-5 mb-3">I post valuable content about web development daily <br/> Check it out <button><LinkContainer to="/learning">
+                <p className = "fs-5 mb-3">I post valuable content about web development daily <br/> Check it out <button onClick={scrollToTop}><Link to="/learning">
               Click Me
-            </LinkContainer></button> </p>
+            </Link></button> </p>
               </div>
 
               {/* Key Strengths */}
