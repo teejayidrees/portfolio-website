@@ -134,9 +134,21 @@ const About = () => {
                   future of web development and eager to contribute to
                   innovative projects.
                 </p>
-                <p className = "fs-5 mb-3">I post valuable content about web development daily <br/> Check it out <button onClick={scrollToTop}><Link to="/learning">
-              Click Me
-            </Link></button> </p>
+                
+                 <p className="mb-3 btn btn-primary">
+                  I post valuable content about web development daily <br />
+                  Check it out
+                  <button
+                    className="list-unstyled border m-2 px-2"
+                    style={{ borderRadius: "10px" }}
+                     onClick={scrollToTop}>
+                    <Link
+                      style={{ textDecoration: "none", color: "green" }}
+                      to="/learning">
+                      Click Me
+                    </Link>
+                  </button>
+                </p>
               </div>
 
               {/* Key Strengths */}
