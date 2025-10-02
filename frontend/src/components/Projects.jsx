@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Badge, Button, Nav } from "react-bootstrap";
 import { useTheme } from "../contexts/ThemeContext";
 import BeatPic from "../media/beatSelling.png";
+import CodedRatips from "../media/coded-ratips.png";
 
 /**
  * Projects Section Component
@@ -29,7 +30,7 @@ const Projects = () => {
       image: BeatPic,
       technologies: ["React", "Node.js", "MongoDB", "Express.js", "Bootstrap"],
       category: "web",
-      featured: true,
+      featured: false,
       liveUrl: "#",
       githubUrl: "#",
       status: "Completed",
@@ -49,6 +50,20 @@ const Projects = () => {
       githubUrl: "#",
       status: "Completed",
     },
+    {
+  id: 3,
+  title: "Coded Ratips (A Number Guessing Game)",
+  description:
+    "An interactive multiplayer number guessing game that challenges players' IQ, logic, and critical thinking. Players can compete across different levels, track their progress, and climb the leaderboard while unlocking new challenges.",
+  image: CodedRatips,
+  technologies: ["React", "Next.js", "MongoDB", "Node.js", "TailwindCSS"],
+  category: "web",
+  featured: true,
+  liveUrl: "coded-ratips.vercel.app",
+  githubUrl: "coded-ratips.vercel.app",
+  status: "Completed"
+},
+
   ];
 
   /**
