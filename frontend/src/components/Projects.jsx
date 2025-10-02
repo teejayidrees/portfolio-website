@@ -54,13 +54,13 @@ const Projects = () => {
   id: 3,
   title: "Coded Ratips (A Number Guessing Game)",
   description:
-    "An interactive multiplayer number guessing game that challenges players' IQ, logic, and critical thinking. Players can compete across different levels, track their progress, and climb the leaderboard while unlocking new challenges.",
+    "An interactive number guessing game that challenges players' IQ, logic, and critical thinking. Players can compete across different levels, track their progress, and climb the leaderboard while unlocking new challenges.",
   image: CodedRatips,
   technologies: ["React", "Next.js", "MongoDB", "Node.js", "TailwindCSS"],
   category: "web",
   featured: true,
-  liveUrl: "coded-ratips.vercel.app",
-  githubUrl: "coded-ratips.vercel.app",
+  liveUrl: "https://coded-ratips.vercel.app",
+  githubUrl: "https://coded-ratips.vercel.app",
   status: "Completed"
 },
 
