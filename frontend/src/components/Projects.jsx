@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Badge, Button, Nav } from "react-bootstrap";
 import { useTheme } from "../contexts/ThemeContext";
 import BeatPic from "../media/beatSelling.png";
 import CodedRatips from "../media/coded-ratips.png";
+import Quiz from "../media/quiz.png"
 
 /**
  * Projects Section Component
@@ -38,15 +39,14 @@ const Projects = () => {
     
     {
       id: 2,
-      title: "Portfolio Website",
+      title: "Quiz/Exam App",
       description:
-        "A responsive portfolio website showcasing projects and skills with smooth animations and modern design.",
+               "A full-stack web based application used for taking Quizes, Exam, Tests and many more. it has an Admin Route which allows the examiner to set the pre-requisite of the test, then users can then take tests in their dashboards after signing up. It also has anti-cheat system which auto submits the test when user minimizes the tab, refreshes or exits the site during the test",
       image:
-        "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "Bootstrap", "React Router"],
+Quiz,      technologies: ["NextJs", "TailwindCSS", "MongoDB"],
       category: "web",
       featured: false,
-      liveUrl: "#",
+      liveUrl: "aheee-quiz-app.vercel.app",
       githubUrl: "#",
       status: "Completed",
     },
