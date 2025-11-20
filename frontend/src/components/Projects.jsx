@@ -23,30 +23,30 @@ const Projects = () => {
    * In a real application, this would come from a CMS or API
    */
   const projects = [
-    {
-      id: 1,
-      title: "A Beat Display and Selling Website",
-      description:
-        "A modern Beat Selling Website for a client(A Beat Producer), which has an admin dashboard for seamless update of the beats and its details. its responsive and sleek",
-      image: BeatPic,
-      technologies: ["React", "Node.js", "MongoDB", "Express.js", "Bootstrap"],
-      category: "web",
-      featured: false,
-      liveUrl: "#",
-      githubUrl: "#",
-      status: "Completed",
-    },
+    // {
+    //   id: 1,
+    //   title: "A Beat Display and Selling Website",
+    //   description:
+    //     "A modern Beat Selling Website for a client(A Beat Producer), which has an admin dashboard for seamless update of the beats and its details. its responsive and sleek",
+    //   image: BeatPic,
+    //   technologies: ["React", "Node.js", "MongoDB", "Express.js", "Bootstrap"],
+    //   category: "web",
+    //   featured: false,
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    //   status: "Completed",
+    // },
     
     {
       id: 2,
       title: "Quiz/Exam App",
       description:
                "A full-stack web based application used for taking Quizes, Exam, Tests and many more. it has an Admin Route which allows the examiner to set the pre-requisite of the test, then users can then take tests in their dashboards after signing up. It also has anti-cheat system which auto submits the test when user minimizes the tab, refreshes or exits the site during the test",
-      image:
-Quiz,      technologies: ["NextJs", "TailwindCSS", "MongoDB"],
+      image: Quiz,      
+      technologies: ["NextJs", "TailwindCSS", "MongoDB"],
       category: "web",
       featured: false,
-      liveUrl: "aheee-quiz-app.vercel.app",
+      liveUrl: "https://aheee-quiz-app.vercel.app",
       githubUrl: "#",
       status: "Completed",
     },
