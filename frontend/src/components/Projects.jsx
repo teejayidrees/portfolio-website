@@ -4,6 +4,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import BeatPic from "../media/beatSelling.png";
 import CodedRatips from "../media/coded-ratips.png";
 import Quiz from "../media/quiz.png"
+import NewsHubPic from "../media/news-app.png";
 
 /**
  * Projects Section Component
@@ -23,19 +24,20 @@ const Projects = () => {
    * In a real application, this would come from a CMS or API
    */
   const projects = [
-    // {
-    //   id: 1,
-    //   title: "A Beat Display and Selling Website",
-    //   description:
-    //     "A modern Beat Selling Website for a client(A Beat Producer), which has an admin dashboard for seamless update of the beats and its details. its responsive and sleek",
-    //   image: BeatPic,
-    //   technologies: ["React", "Node.js", "MongoDB", "Express.js", "Bootstrap"],
-    //   category: "web",
-    //   featured: false,
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   status: "Completed",
-    // },
+  {
+  id: 2,
+  title: "Naija NewsHub – Real-Time News Aggregator",
+  description:
+    "A responsive news platform built with Next.js and NewsAPI, delivering real-time Nigerian and global headlines. Features dynamic routing, clean UI, and AI-assisted development for faster build and deployment. Designed to keep users informed with a simple, intuitive experience.",
+  image: NewsHubPic,
+  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "NewsAPI", "Vercel", "AI"],
+  category: "web",
+  featured: false,
+  liveUrl: "https://aheee-news-app.vercel.app",
+  githubUrl: "https://github.com/teejayidrees/news-app",
+  status: "Completed",
+},
+
     
     {
       id: 2,
