@@ -107,8 +107,8 @@ const About = () => {
             <div className="ps-lg-4">
               {/* Main Description */}
               <h3 className="h4 fw-bold mb-4">
-                I'm a Junior Web Developer passionate about creating amazing
-                digital experiences
+                I'm a Full-Stack Web Developer passionate about creating amazing
+                digital experiences for businesses
               </h3>
 
               <div className="mb-4">
@@ -121,8 +121,7 @@ const About = () => {
                 </p>
 
                 <p className="mb-3">
-                  I specialize in frontend development with React and modern
-                  JavaScript, but I'm always eager to learn new technologies and
+                  I specialize in Full-Stack Development with the MERN Stack and Next.js                  JavaScript, but I'm always eager to learn new technologies and
                   expand my skill set. I believe in writing clean, modular
                   maintainable code and following best practices.
                 </p>
@@ -167,14 +166,13 @@ const About = () => {
               </div>
 
               {/* Experience Progress */}
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <h5 className="fw-bold mb-3">Experience Level</h5>
                 <div className="mb-3">
                   <div className="d-flex justify-content-between mb-1">
                     <span>Frontend Development</span>
                     <span>85%</span>
                   </div>
-                  {/* progress bar from react bootstrap now attribute simulates percentage*/}
                   <ProgressBar variant="primary" now={85} />
                 </div>
                 <div className="mb-3">
@@ -191,7 +189,8 @@ const About = () => {
                   </div>
                   <ProgressBar variant="info" now={88} />
                 </div>
-              </div>
+              </div> */}
+              
             </div>
           </Col>
         </Row>
