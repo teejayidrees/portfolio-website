@@ -68,13 +68,13 @@ const Hero = () => {
               {/* Animated Role Description */}
               <h2 className={`h3 mb-4 ${isDark ? "text-info" : "text-white"}`}>
                 <i className="bi bi-code-slash me-2"></i>
-                Junior Web Developer
+                Full-Stack Web Developer
               </h2>
             </div>
 
             {/* Description Paragraph */}
             <p className={`lead mb-4 ${isDark ? "text-light" : "text-white"}`}>
-              Passionate about creating beautiful, functional web applications
+              Passionate about creating beautiful, functional full-stack web applications
               using modern technologies. I love turning complex problems into
               simple, elegant solutions.
             </p>
