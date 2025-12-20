@@ -48,26 +48,16 @@ const Navigation = () => {
       variant={isDark ? "dark" : "light"}
       bg={isDark ? "dark" : "light"}
       fixed="top"
-      className="shadow-lg ">
+      className="shadow-sm ">
       <Container>
         {/* Brand/Logo */}
         <LinkContainer to="/">
           <Navbar.Brand className="fw-bold fs-3">
-            <i className="bi bi-code-slash me-2 text-primary"></i>
-            Ahmad Idris
+            <i className="bi bi-code-slash me-2 ms-3 text-primary"></i>
           </Navbar.Brand>
         </LinkContainer>
 
         <div className="d-flex g-2">
-          {/*Theme Controller medium screen*/}
-          <Button
-            variant={isDark ? "outline-light" : "outline-dark"}
-            size="sm"
-            onClick={toggleTheme}
-            className="d-flex align-items-center me-2 d-lg-none">
-            <i className={`bi ${isDark ? "bi-sun" : "bi-moon"} me-1`}></i>
-            {isDark ? "Light" : "Dark"}
-          </Button>
           {/* Mobile toggle */}
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"

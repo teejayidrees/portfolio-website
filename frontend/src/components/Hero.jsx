@@ -1,233 +1,177 @@
-import React from "react";
+// import React from "react";
+// import { Container, Row, Col, Button } from "react-bootstrap";
+// import { useTheme } from "../contexts/ThemeContext";
+// import Resume from "../media/myResume.pdf";
+
+// const Hero = () => {
+//   const { isDark } = useTheme();
+
+//   const scrollToSection = (id) => {
+//     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+//   };
+
+//   const handleDownload = () => {
+//     const link = document.createElement("a");
+//     link.href = Resume;
+//     link.download = "Ahmad-Idris-Resume.pdf";
+//     link.click();
+//   };
+
+//   return (
+//     <section
+//       id="hero"
+//       className={`min-vh-80 d-flex align-items-center ${
+//         isDark ? "bg-dark text-light" : "bg-light text-dark"
+//       }`}
+//       style={{ paddingTop: "80px" }}>
+//       <Container>
+//         <Row className="justify-content-center">
+//           <Col lg={8} className="text-center">
+//             <h1 className="fw-bold mb-3">
+//               Hi, I’m <span className="text-primary">Ahmad Idris</span>
+//             </h1>
+
+//             <h2 className="h5 fw-normal mb-3">Full-Stack Web Developer</h2>
+
+//             <p className="mb-4 text-muted">
+//               I build clean, functional web applications with modern tools.
+//             </p>
+
+//             <div className="d-flex justify-content-center gap-3 flex-wrap">
+//               <Button
+//                 variant="primary"
+//                 size="lg"
+//                 onClick={() => scrollToSection("projects")}>
+//                 View Projects
+//               </Button>
+
+//               <Button
+//                 variant="outline-secondary"
+//                 size="lg"
+//                 onClick={handleDownload}>
+//                 Download Resume
+//               </Button>
+//             </div>
+
+//             <div className="mt-4 medium text-muted">
+//               📍 Minna, Nigeria · Available for work
+//             </div>
+//           </Col>
+//         </Row>
+//       </Container>
+//     </section>
+//   );
+// };
+
+// export default Hero;
+
+import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useTheme } from "../contexts/ThemeContext";
-import profilePic from "../media/profilePic.jpg";
 import Resume from "../media/myResume.pdf";
 
-/**
- * Hero Section Component
- * - Main landing section with introduction and call-to-action
- * - Features animated typing effect and gradient backgrounds
- * - Responsive design with different layouts for mobile and desktop
- */
 const Hero = () => {
-  // Get theme context for conditional styling
   const { isDark } = useTheme();
+  const [showMore, setShowMore] = useState(false);
 
-  /**
-   * Scroll to a specific section on the page
-   * @param {string} sectionId - The ID of the section to scroll to
-   */
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = Resume;
-    link.download = "myResume.pdf";
+    link.download = "Ahmad-Idris-Resume.pdf";
     link.click();
   };
 
   return (
     <section
       id="hero"
-      className={`hero-section min-vh-100 d-flex align-items-center position-relative ${
-        isDark ? "bg-dark" : "bg-light"
-      }`}
-      style={{
-        paddingTop: "80px", // Account for fixed navbar
-        background: isDark
-          ? "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"
-          : "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
-      }}>
+      className={`${isDark ? "bg-dark text-light" : "bg-light text-dark"}`}
+      style={{ paddingTop: "80px", paddingBottom: "30px" }}>
       <Container>
-        <Row className="align-items-center min-vh-100">
-          {/* Left Column - Text Content */}
-          <Col lg={6} className="text-center text-lg-start">
-            {/* Greeting and Introduction */}
-            <div className="mb-4">
-              <h1 className="display-4 fw-bold mb-3">
-                <span className={isDark ? "text-light" : "text-white"}>
-                  Hi, I'm{" "}
-                </span>
-                <span
-                  className="text-warning"
-                  style={{
-                    background: "linear-gradient(45deg, #ffd700, #ffed4e)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}>
-                  Ahmad Idris
-                </span>
-              </h1>
+        <Row className="justify-content-center">
+          <Col lg={8} className="text-center">
+            {/* HERO CONTENT */}
+            <h1 className="fw-bold mb-3">
+              Hi, I’m <span className="text-primary">Ahmad Idris</span>
+            </h1>
 
-              {/* Animated Role Description */}
-              <h2 className={`h3 mb-4 ${isDark ? "text-info" : "text-white"}`}>
-                <i className="bi bi-code-slash me-2"></i>
-                Full-Stack Web Developer
-              </h2>
-            </div>
+            <h2 className="h5 fw-normal mb-3">Full-Stack Web Developer</h2>
 
-            {/* Description Paragraph */}
-            <p className={`lead mb-4 ${isDark ? "text-light" : "text-white"}`}>
-              Passionate about creating beautiful, functional full-stack web applications
-              using modern technologies. I love turning complex problems into
-              simple, elegant solutions.
+            <p className={`mb-4 ${isDark ? "text-light " : " text-muted "}`}>
+              I build clean, functional web applications using modern web
+              technologies.
             </p>
 
-            {/* Status Indicators */}
-            <div className="mb-4">
-              <div className="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
-                <div className="d-flex align-items-center">
-                  <i className="bi bi-geo-alt text-warning me-2"></i>
-                  <span className={isDark ? "text-light" : "text-white"}>
-                    Minna, NG
-                  </span>
-                </div>
-                <div className="d-flex align-items-center">
-                  <div
-                    className="rounded-circle  me-2"
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      backgroundColor: "green",
-                    }}></div>
-                  <span className={isDark ? "text-light" : "text-white"}>
-                    Available for work
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Call-to-Action Buttons */}
-            <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
-              <Button
-                variant="warning"
-                size="lg"
-                onClick={() => scrollToSection("projects")}
-                className="fw-semibold">
-                <i className="bi bi-eye me-2"></i>
-                View My Work
-              </Button>
+            <div className="d-flex justify-content-center gap-3 flex-wrap mb-4">
+              {/* <Button
+                variant="primary"
+                size="sm"
+                onClick={() => scrollToSection("projects")}>
+                View Projects
+              </Button> */}
 
               <Button
-                variant={isDark ? "outline-light" : "outline-light"}
-                size="lg"
-                onClick={() => scrollToSection("contact")}
-                className="fw-semibold">
-                <i className="bi bi-envelope me-2"></i>
-                Get In Touch
+                variant="outline-primary"
+                size="sm"
+                onClick={() => scrollToSection("contact")}>
+                Contact Me
               </Button>
-              <Button variant="success" size="md" onClick={handleDownload}>
-                My Resume
+
+              <Button variant="success" size="sm" onClick={handleDownload}>
+                View My Resume
               </Button>
             </div>
 
-            {/* Social Links */}
-            <div className="mt-4">
-              <div className="d-flex justify-content-center justify-content-lg-start gap-3">
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`btn btn-outline-${
-                    isDark ? "light" : "light"
-                  } btn-sm rounded-circle`}
-                  style={{ width: "40px", height: "40px" }}>
-                  <i className="bi bi-github"></i>
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`btn btn-outline-${
-                    isDark ? "light" : "light"
-                  } btn-sm rounded-circle`}
-                  style={{ width: "40px", height: "40px" }}>
-                  <i className="bi bi-linkedin"></i>
-                </a>
-                <a
-                  href="mailto:alex@example.com"
-                  className={`btn btn-outline-${
-                    isDark ? "light" : "light"
-                  } btn-sm rounded-circle`}
-                  style={{ width: "40px", height: "40px" }}>
-                  <i className="bi bi-envelope"></i>
-                </a>
-              </div>
+            <div
+              className={`${
+                isDark ? "text-light mb-5" : "small text-muted mb-5"
+              }`}>
+              📍 Minna, Nigeria · Available for work
             </div>
-          </Col>
 
-          {/* Right Column - Profile Image and Visual Elements */}
-          <Col lg={6} className="text-center mt-5 mt-lg-0">
-            <div className="position-relative">
-              {/* Main Profile Image */}
-              <div
-                className="mx-auto rounded-circle overflow-hidden shadow-lg"
-                style={{
-                  width: "300px",
-                  height: "300px",
-                  border: "4px solid rgba(255, 255, 255, 0.3)",
-                }}>
-                <img
-                  src={profilePic}
-                  alt="Alex Johnson - Junior Web Developer"
-                  className="w-100 h-100"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
+            {/* ABOUT PREVIEW */}
+            <div className="text-start">
+              <h3 className="h5 fw-bold mb-3 text-center">About Me</h3>
 
-              {/* Floating Tech Icons */}
-              <div className="position-absolute top-0 start-0 animate__animated animate__fadeInLeft">
-                <div
-                  className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow"
-                  style={{ width: "50px", height: "50px" }}>
-                  <i className="bi bi-filetype-js fs-5"></i>
-                </div>
-              </div>
+              <p className={`${isDark ? "text-light" : "text-muted"}`}>
+                I’m a Full-Stack Web Developer passionate about building
+                scalable, user-focused web applications and solving real-world
+                problems with clean code.
+              </p>
 
-              <div className="position-absolute top-0 end-0 animate__animated animate__fadeInRight">
-                <div
-                  className="bg-info text-white rounded-circle d-flex align-items-center justify-content-center shadow"
-                  style={{ width: "50px", height: "50px" }}>
-                  <i className="bi bi-bootstrap fs-5"></i>
-                </div>
-              </div>
+              {showMore && (
+                <>
+                  <p className={`${isDark ? "text-light" : "text-muted"}`}>
+                    My journey into web development grew from a strong interest
+                    in how systems work behind the scenes. I specialize mainly
+                    in JavaScript, the MERN stack, and modern frontend tools,
+                    while continuously improving my backend and system design
+                    skills.
+                  </p>
 
-              <div className="position-absolute bottom-0 start-0 animate__animated animate__fadeInUp">
-                <div
-                  className="bg-success text-white rounded-circle d-flex align-items-center justify-content-center shadow"
-                  style={{ width: "50px", height: "50px" }}>
-                  <i className="bi bi-git fs-5"></i>
-                </div>
-              </div>
+                  <p className={`${isDark ? "text-light" : "text-muted"}`}>
+                    I value clean architecture, maintainable code, and practical
+                    solutions over unnecessary complexity. Outside coding, I
+                    enjoy learning new technologies, contributing to projects,
+                    and sharing knowledge.
+                  </p>
+                </>
+              )}
 
-              <div className="position-absolute bottom-0 end-0 animate__animated animate__fadeInUp">
-                <div
-                  className="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center shadow"
-                  style={{ width: "50px", height: "50px" }}>
-                  <i className="bi bi-code-square fs-5"></i>
-                </div>
+              <div className="text-center mt-3">
+                <Button
+                  variant="link"
+                  className="text-decoration-none fw-semibold"
+                  onClick={() => setShowMore(!showMore)}>
+                  {showMore ? "Read less" : "Read more"}
+                </Button>
               </div>
             </div>
           </Col>
         </Row>
-
-        {/* Scroll Down Indicator */}
-        <div className="position-absolute bottom-0 start-10 translate-middle-x mb-4">
-          <Button
-            variant="link"
-            onClick={() => scrollToSection("about")}
-            className={`text-${
-              isDark ? "light" : "white"
-            } text-decoration-none animate__animated animate__bounce animate__infinite`}>
-            <i className="bi bi-chevron-down fs-3"></i>
-          </Button>
-        </div>
       </Container>
     </section>
   );
