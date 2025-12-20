@@ -25,7 +25,7 @@ function App() {
           <Navigation />
 
           {/* Main Content Area with Route Switching */}
-          <main>
+          <main className="overflow-hidden w-100">
             <Routes>
               {/* Home page route - contains all portfolio sections */}
               <Route path="/" element={<Home />} />
