@@ -144,7 +144,7 @@ const Hero = () => {
 
               {showMore && (
                 <>
-                  <p className={`${isDark ? "text-light" : "text-muted"}`}>
+                  <p className={` ${isDark ? "text-light" : "text-muted"}`}>
                     My journey into web development grew from a strong interest
                     in how systems work behind the scenes. I specialize mainly
                     in JavaScript, the MERN stack, and modern frontend tools,
@@ -152,7 +152,7 @@ const Hero = () => {
                     skills.
                   </p>
 
-                  <p className={`${isDark ? "text-light" : "text-muted"}`}>
+                  <p className={` ${isDark ? "text-light" : "text-muted"}`}>
                     I value clean architecture, maintainable code, and practical
                     solutions over unnecessary complexity. Outside coding, I
                     enjoy learning new technologies, contributing to projects,
@@ -161,10 +161,10 @@ const Hero = () => {
                 </>
               )}
 
-              <div className="text-center mt-3">
+              <div className="text-center mt-0">
                 <Button
                   variant="link"
-                  className="text-decoration-none fw-semibold"
+                  className="text-decoration-none fw-semibold mt-0"
                   onClick={() => setShowMore(!showMore)}>
                   {showMore ? "Read less" : "Read more"}
                 </Button>

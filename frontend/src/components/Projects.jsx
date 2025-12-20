@@ -73,8 +73,8 @@ const Projects = () => {
         {/* Projects Grid */}
         <Row className="g-4">
           {projects.map((project) => {
-            const isOpen = expanded === project.id;
-            const shortText = project.description.slice(0, 120);
+            // const isOpen = expanded === project.id;
+            // const shortText = project.description.slice(0, 120);
 
             return (
               <Col md={6} lg={4} key={project.id}>
@@ -94,8 +94,9 @@ const Projects = () => {
                     </Card.Title>
 
                     <Card.Text className="small text-muted">
-                      {isOpen ? project.description : shortText}
-                      {project.description.length > 140 && (
+                      {project.description}
+                      {/* {isOpen ? project.description : shortText} */}
+                      {/* {project.description.length > 140 && (
                         <Button
                           variant="null"
                           className="p-0 ms small align-baseline text-decoration-none text-muted  fs-10"
@@ -104,7 +105,7 @@ const Projects = () => {
                           }>
                           {isOpen ? " " : "...Read more"}
                         </Button>
-                      )}
+                      )} */}
                     </Card.Text>
 
                     {/* Tech stack */}

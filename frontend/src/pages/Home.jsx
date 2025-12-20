@@ -13,7 +13,7 @@ import Contact from "../components/Contact";
  */
 const Home = () => {
   return (
-    <div className="home-page" style={{ width: "100%" }}>
+    <div className="home-page">
       {/* Hero Section - Main introduction and call-to-action */}
       <Hero />
 
