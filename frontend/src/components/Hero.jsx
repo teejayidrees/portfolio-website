@@ -125,13 +125,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div
-              className={`${
-                isDark ? "text-light mb-5" : "small text-muted mb-5"
-              }`}>
-              📍 Minna, Nigeria · Available for work
-            </div>
-
             {/* ABOUT PREVIEW */}
             <div className="text-start">
               <h3 className="h5 fw-bold mb-3 text-center">About Me</h3>
